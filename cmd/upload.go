@@ -43,42 +43,7 @@ type SiteInfo struct {
 	} `json:"status"`
 	Data []struct {
 		Site struct {
-			ID              int           `json:"id"`
-			AccountID       int           `json:"accountId"`
-			IsActive        int           `json:"isActive"`
-			IsSuspended     int           `json:"isSuspended"`
-			IsTemplate      int           `json:"isTemplate"`
-			Email           string        `json:"email"`
-			Locale          string        `json:"locale"`
-			StatServer      interface{}   `json:"statServer"`
-			StatUserID      interface{}   `json:"statUserId"`
-			StatToken       interface{}   `json:"statToken"`
-			Username        string        `json:"username"`
-			SiteUserGroups  string        `json:"siteUserGroups"`
-			Subdomain       string        `json:"subdomain"`
-			AttachedDomains []interface{} `json:"attachedDomains"`
-			PrimaryDomain   bool          `json:"primaryDomain"`
-			CreateDate      time.Time     `json:"createDate"`
-			Description     string        `json:"description"`
-			Name            string        `json:"name"`
-			BatchID         string        `json:"batchId"`
-			AssignUserID    string        `json:"assignUserId"`
-			AssignUserName  string        `json:"assignUserName"`
-			LastPublishDate time.Time     `json:"lastPublishDate"`
-			Notes           string        `json:"notes"`
-			FlowStatus      string        `json:"flowStatus"`
-			Contacted       string        `json:"contacted"`
-			Custom1         string        `json:"custom1"`
-			Custom2         string        `json:"custom2"`
-			Custom3         string        `json:"custom3"`
-			Custom4         string        `json:"custom4"`
-			Custom5         string        `json:"custom5"`
-			Type            string        `json:"type"`
-			HeadingID       interface{}   `json:"headingId"`
-			Version         string        `json:"version"`
-			CustomerSiteID  interface{}   `json:"customerSiteId"`
-			CustomerSource  interface{}   `json:"customerSource"`
-			TemplateID      interface{}   `json:"templateId"`
+			Subdomain       string        `json:"subdomain"`		
 		} `json:"site"`
 	} `json:"data"`
 }
