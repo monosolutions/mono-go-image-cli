@@ -1,0 +1,25 @@
+project_name: mono-image
+release:
+  github:
+    owner: monosolutions
+    name: mono-go-image-cli
+  name_template: '{{.Tag}}'
+builds:
+- goos:
+  - linux
+  - darwin
+  - freebsd
+  - windows
+  goarch:
+  - amd64
+  - "386"
+  goarm:
+  - "6"
+  main: .
+  ldflags: -s -w -X main.version={{.Version}} -X main.commit={{.Commit}} -X main.date={{.Date}} -X main.ghToken={{.Env.GITHUB_TOKEN}}
+  binary: mono-image
+archive:
+  format: tar.gz
+  name_template: '{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{
+    .Arm }}{{ end }}'
+

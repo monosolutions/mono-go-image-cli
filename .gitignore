@@ -1,0 +1,6 @@
+bin/
+pkg/
+src/
+test/
+test-1/
+mono-go-image-cli.exe
