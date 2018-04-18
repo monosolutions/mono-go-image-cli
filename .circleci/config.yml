@@ -13,6 +13,7 @@ jobs:
           name: Build          
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                go get github.com/inconshreveable/mousetrap
                 go get 
                 VERSION="0.0.${CIRCLE_BUILD_NUM}"                         
                 git config --global user.email "${EMAIL}"
