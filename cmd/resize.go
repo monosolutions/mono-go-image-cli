@@ -32,6 +32,19 @@ var width string
 var height string
 var h int
 var w int
+func resize(srcFile, dest){
+	
+	src, err := imaging.Open(srcFile)
+	if err != nil {
+		log.Fatalf("failed to open image: %v", err)
+	}
+	src = imaging.Resize(src, w, h, imaging.Lanczos)
+	err = imaging.Save(src, dest)
+	if err != nil {
+		log.Fatalf("failed to save image: %v", err)
+	}				
+}
+
 
 var resizeCmd = &cobra.Command{
 	Use:   "resize",
@@ -66,15 +79,7 @@ var resizeCmd = &cobra.Command{
 		fmt.Printf("Resizing %s and storing it to %s \r\n", file, output)
 		
 		if(file!=""){
-			src, err := imaging.Open(file)
-			if err != nil {
-				log.Fatalf("failed to open image: %v", err)
-			}
-			src = imaging.Resize(src, w, h, imaging.Lanczos)
-			err = imaging.Save(src, output)
-			if err != nil {
-				log.Fatalf("failed to save image: %v", err)
-			}
+			resize(file, output)			
 			os.Exit(0)
 		}
 
@@ -88,15 +93,7 @@ var resizeCmd = &cobra.Command{
 				dest:=fmt.Sprintf("%s/%s",output, f.Name())
 				srcFile:=fmt.Sprintf("%s/%s", directory, f.Name())		
 
-				src, err := imaging.Open(srcFile)
-				if err != nil {
-					log.Fatalf("failed to open image: %v", err)
-				}
-				src = imaging.Resize(src, h, w, imaging.Lanczos)
-				err = imaging.Save(src, dest)
-				if err != nil {
-					log.Fatalf("failed to save image: %v", err)
-				}				
+				resize(srcFile, dest)
 			}			
 			os.Exit(0)
 		}
