@@ -14,8 +14,8 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
                 VERSION="0.0.${CIRCLE_BUILD_NUM}"                         
-                git config --global user.email "mlu@monosolutions.com"
-                git config --global user.name "mono-deployment"
+                git config --global user.email "${EMAIL}"
+                git config --global user.name "${USER}"
                 git tag -a $VERSION -m "v${VERSION}"            
                 goreleaser                   
             fi
