@@ -32,7 +32,7 @@ var width string
 var height string
 var h int
 var w int
-func resize(srcFile, dest){
+func resize(srcFile string, dest string){
 	
 	src, err := imaging.Open(srcFile)
 	if err != nil {
