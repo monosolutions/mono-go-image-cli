@@ -70,7 +70,7 @@ var resizeCmd = &cobra.Command{
 			if err != nil {
 				log.Fatalf("failed to open image: %v", err)
 			}
-			src = imaging.Resize(src, h, w, imaging.Lanczos)
+			src = imaging.Resize(src, w, h, imaging.Lanczos)
 			err = imaging.Save(src, output)
 			if err != nil {
 				log.Fatalf("failed to save image: %v", err)
